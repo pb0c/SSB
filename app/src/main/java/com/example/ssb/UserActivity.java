@@ -23,6 +23,7 @@ public class UserActivity extends AppCompatActivity {
         this.btnAcceder = findViewById(R.id.btnAcceder);
 
 
+
         btnAcceder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

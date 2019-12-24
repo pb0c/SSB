@@ -1,6 +1,10 @@
-package com.example.ssb;
+package com.example.ssb.dto;
 
-public class Alarma extends User{
+import com.example.ssb.dto.User;
+
+import java.io.Serializable;
+
+public class Alarma extends User implements Serializable {
     private User user;
     private Boolean estado;
 
