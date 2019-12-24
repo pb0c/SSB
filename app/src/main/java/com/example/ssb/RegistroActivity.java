@@ -42,8 +42,7 @@ public class RegistroActivity extends AppCompatActivity {
                 String mail = editMail.getText().toString();
 
                 if (validar(rut) && validar(nombre) && validar(pass) && validar(re) && validar(mail)){
-                    userDAL.insertar(editRut.getText().toString(),editnombre.getText().toString(),
-                            editPass.getText().toString(),editMail.getText().toString());
+                    userDAL.insertar(editRut.getText().toString(),editnombre.getText().toString(),editPass.getText().toString(),editMail.getText().toString());
 
                     /* Intent btnRegistro = new Intent(RegistroActivity.this, UserActivity.class);
                     startActivity(btnRegistro); */
