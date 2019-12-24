@@ -2,6 +2,7 @@ package com.example.ssb;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -46,7 +47,11 @@ public class RegistroActivity extends AppCompatActivity {
         });
     }
 
+    //Validar datos
     boolean validar(String texto){
         return texto!=null && texto.trim().length()>0;
     }
+
+
+
 }

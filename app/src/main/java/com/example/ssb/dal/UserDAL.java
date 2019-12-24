@@ -3,6 +3,7 @@ package com.example.ssb.dal;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.ssb.dto.User;
@@ -53,6 +54,17 @@ public class UserDAL {
             return false;
         }
         return true;
+    }
+
+    //Validar usuario
+    public Cursor verif(String us, String pass) throws SQLException    {
+        Cursor mcursor = null;
+        mcursor = this.dbHelper.getReadableDatabase().query("usuario",
+                new String[]{"rut","nombre","pass","mail"},"rut like '"+us+"' and pass like '"+pass+"'",
+                null,null,null,null);
+
+
+        return mcursor;
     }
 
 

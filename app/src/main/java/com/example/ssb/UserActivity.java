@@ -3,6 +3,8 @@ package com.example.ssb;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.SQLException;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -35,5 +37,15 @@ public class UserActivity extends AppCompatActivity {
 
         });
 
+
+
     }
+
+    /*Validar usuario
+    public Cursor verif(String us, String pass) throw SQLException {
+        Cursor mcursor = null;
+        mcursor = this.getRe
+
+        return mcursor;
+    }*/
 }

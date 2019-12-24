@@ -1,7 +1,9 @@
 package com.example.ssb;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -32,7 +34,25 @@ public class MenuActivity extends AppCompatActivity {
             }
 
         });
-        
+
+        btnConectar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
+                builder.setMessage("Su alarma está conectada");
+                builder.setTitle("Conexión");
+                builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog alert = builder.create();
+                alert.show();
+
+            }
+
+        });
 
     }
 }
