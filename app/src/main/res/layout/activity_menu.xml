@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="121dp"
+        android:layout_marginTop="100dp">
+
+        <Button
+            android:id="@+id/btnConectar"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#7CC9B5"
+            android:baselineAligned="false"
+            android:freezesText="false"
+            android:rotation="45"
+            android:text="Conectar"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="37dp"
+        android:layout_marginTop="183dp">
+
+        <Button
+            android:id="@+id/btnDesconectar"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#7CC9B5"
+            android:rotation="45"
+            android:text="Desconectar"
+            android:textColor="#FFFFFF" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="121dp"
+        android:layout_marginTop="270dp">
+
+        <Button
+            android:id="@+id/btnEstado"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#7CC9B5"
+            android:rotation="45"
+            android:text="Consultar Estado"
+            android:textColor="#FFFFFF" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="206dp"
+        android:layout_marginTop="358dp">
+
+        <Button
+            android:id="@+id/btnAtencion"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#7CC9B5"
+            android:rotation="45"
+            android:text="Atención al Cliente"
+            android:textColor="#FFFFFF" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="121dp"
+        android:layout_marginTop="440dp">
+
+        <Button
+            android:id="@+id/btnCerrar"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#CBCBCB"
+            android:rotation="45"
+            android:text="Cerrar Sesión"
+            android:textColor="#FFFFFF" />
+    </FrameLayout>
+
+</RelativeLayout>
