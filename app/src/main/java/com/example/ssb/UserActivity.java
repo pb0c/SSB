@@ -9,10 +9,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.ssb.dal.UserDAL;
+import com.example.ssb.helpers.DatabaseHelper;
 
 public class UserActivity extends AppCompatActivity {
     private EditText editId, editPass;
     private Button btnAcceder;
+    private UserDAL userDAL;
+    private DatabaseHelper dbHelper;
 
 
     @Override
@@ -29,10 +35,19 @@ public class UserActivity extends AppCompatActivity {
         btnAcceder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent btnAcceder = new Intent(UserActivity.this, MenuActivity.class);
 
-                startActivity(btnAcceder);
+                Cursor cursor = dbHelper.verif(editId.getText().toString(),editPass.getText().toString());
 
+                if (cursor.getCount()>0){
+                    Intent btnAcceder = new Intent(UserActivity.this, MenuActivity.class);
+
+                    startActivity(btnAcceder);
+                }else {
+                    Toast.makeText(getApplicationContext(),"Usuario o Contraseña incorrecto",Toast.LENGTH_LONG).show();
+                }
+                editId.setText("");
+                editPass.setText("");
+                editId.findFocus();
             }
 
         });

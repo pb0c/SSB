@@ -17,7 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE usuario(rut TEXT PRIMARY KEY, nombre TEXT, pass TEXT);");
+        db.execSQL("CREATE TABLE usuario(rut TEXT PRIMARY KEY, nombre TEXT, pass TEXT, mail TEXT);");
         db.execSQL("CREATE TABLE alarma(nombre TEXT, estado boolean);");
     }
 
@@ -26,5 +26,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    public Cursor verif(String us, String pass) throws SQLException    {
+        Cursor mcursor = null;
+        mcursor = this.getReadableDatabase().query("usuario",
+                new String[]{"rut","nombre","pass","mail"},"rut like '"+us+"' and pass like '"+pass+"'",
+                null,null,null,null);
+
+
+        return mcursor;
+    }
 
 }

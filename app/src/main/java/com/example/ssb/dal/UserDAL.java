@@ -31,10 +31,11 @@ public class UserDAL {
         return tryInsert();
     }
 
-    public boolean insertar(String rut, String nombre, String pass){
+    public boolean insertar(String rut, String nombre, String pass, String mail){
         this.user.setRut(rut);
         this.user.setNombre(nombre);
         this.user.setPass(pass);
+        this.user.setMail(mail);
 
         return this.tryInsert();
     }
@@ -46,6 +47,7 @@ public class UserDAL {
         c.put("rut",this.user.getRut());
         c.put("nombre",this.user.getNombre());
         c.put("pass",this.user.getPass());
+        c.put("mail",this.user.getMail());
 
 
         try {
@@ -57,15 +59,7 @@ public class UserDAL {
     }
 
     //Validar usuario
-    public Cursor verif(String us, String pass) throws SQLException    {
-        Cursor mcursor = null;
-        mcursor = this.dbHelper.getReadableDatabase().query("usuario",
-                new String[]{"rut","nombre","pass","mail"},"rut like '"+us+"' and pass like '"+pass+"'",
-                null,null,null,null);
 
-
-        return mcursor;
-    }
 
 
     public User getUser() {

@@ -2,6 +2,7 @@ package com.example.ssb;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -10,9 +11,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ssb.dal.UserDAL;
+
 public class RegistroActivity extends AppCompatActivity {
     private EditText editRut, editnombre, editPass, editRe, editMail;
     private Button btnRegistro;
+    private UserDAL userDAL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +42,19 @@ public class RegistroActivity extends AppCompatActivity {
                 String mail = editMail.getText().toString();
 
                 if (validar(rut) && validar(nombre) && validar(pass) && validar(re) && validar(mail)){
+                    userDAL.insertar(editRut.getText().toString(),editnombre.getText().toString(),
+                            editPass.getText().toString(),editMail.getText().toString());
 
+                    /* Intent btnRegistro = new Intent(RegistroActivity.this, UserActivity.class);
+                    startActivity(btnRegistro); */
+
+                    Toast.makeText(getApplicationContext(),"Usuario registrado con éxito",Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(getApplicationContext(),"Datos Incompletos",Toast.LENGTH_SHORT).show();
                 }
 
             }
+
         });
     }
 
