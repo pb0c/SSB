@@ -67,11 +67,6 @@ public class MenuActivity extends AppCompatActivity {
         btnConectar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlarmaDAL alarmaDAL = new AlarmaDAL(getApplicationContext(), new Alarma());
-                String rut = userDAL.getUser().getRut();
-                String estado = "Conectado";
-
-                alarmaDAL.insertar(rut,estado);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
                 builder.setMessage("Su alarma está conectada");
