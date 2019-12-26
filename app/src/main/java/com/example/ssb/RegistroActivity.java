@@ -51,8 +51,8 @@ public class RegistroActivity extends AppCompatActivity {
                 if (validar(rut) && validar(nombre) && validar(pass) && validar(re) && validar(mail)){
                     userDAL.insertar(editRut.getText().toString(), editnombre.getText().toString(), editPass.getText().toString(), editMail.getText().toString());
 
-                    /* Intent btnRegistro = new Intent(RegistroActivity.this, UserActivity.class);
-                    startActivity(btnRegistro); */
+                    Intent btnRegistro = new Intent(RegistroActivity.this, UserActivity.class);
+                    startActivity(btnRegistro);
 
                     Toast.makeText(getApplicationContext(),"Usuario registrado con éxito",Toast.LENGTH_SHORT).show();
                 }else {
