@@ -22,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE usuario(rut TEXT PRIMARY KEY, nombre TEXT, pass TEXT, mail TEXT);");
-        db.execSQL("CREATE TABLE alarma(rutUser TEXT, estado TEXT);");
+        db.execSQL("CREATE TABLE alarma(rutUser TEXT, estado TEXT, DATE DEFAULT CURRENT_TIMESTAMP);");
 
     }
 
