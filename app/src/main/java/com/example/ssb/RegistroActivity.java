@@ -36,6 +36,7 @@ public class RegistroActivity extends AppCompatActivity {
         final DatabaseHelper databaseHelper= new DatabaseHelper(getApplicationContext());
 
 
+
         btnRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
