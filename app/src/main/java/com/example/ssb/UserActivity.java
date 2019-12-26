@@ -62,12 +62,4 @@ public class UserActivity extends AppCompatActivity {
 
 
     }
-
-    /*Validar usuario
-    public Cursor verif(String us, String pass) throw SQLException {
-        Cursor mcursor = null;
-        mcursor = this.getRe
-
-        return mcursor;
-    }*/
 }

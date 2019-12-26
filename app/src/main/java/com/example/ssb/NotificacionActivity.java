@@ -12,7 +12,7 @@ import com.example.ssb.dto.Alarma;
 import java.util.ArrayList;
 
 public class NotificacionActivity extends AppCompatActivity {
-    private ListView listNot1, listNot2;
+    private ListView listNot1;
     private ArrayAdapter<Alarma> adapter;
     private ArrayList<Alarma> lista;
     private AlarmaDAL alarmaDAL;
@@ -27,7 +27,7 @@ public class NotificacionActivity extends AppCompatActivity {
         this.lista = new AlarmaDAL(getBaseContext()).seleccionar();
 
         this.listNot1 = findViewById(R.id.listNot1);
-        this.listNot2 = findViewById(R.id.listNot2);
+
 
 
         this.adapter = new ArrayAdapter<Alarma>(
@@ -36,7 +36,6 @@ public class NotificacionActivity extends AppCompatActivity {
                 this.lista
         );
 
-        //iii asociar arrayadapter al componente listview
         this.listNot1.setAdapter(adapter);
 
 

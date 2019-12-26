@@ -42,27 +42,14 @@ public class MenuActivity extends AppCompatActivity {
 
         this.lista = new UserDAL(getBaseContext()).seleccionar();
 
-
-
-        /* this.listSeries = findViewById(R.id.listSeries);
-
-        // ii crear array adapter
-        this.adapter = new ArrayAdapter<Serie>(
-                getApplicationContext(),
-                android.R.layout.simple_list_item_1,
-                this.lista
-        );
-
-        //iii asociar arrayadapter al componente listview
-        this.listSeries.setAdapter(adapter); */
-
         this.btnConectar = findViewById(R.id.btnConectar);
         this.btnDesconectar = findViewById(R.id.btnDesconectar);
         this.btnEstado = findViewById(R.id.btnEstado);
         this.btnAtencion = findViewById(R.id.btnAtencion);
         this.btnCerrar = findViewById(R.id.btnCerrar);
-        this.editRut = findViewById(R.id.editRut);
+        //this.editRut = findViewById(R.id.editRut);
 
+        final DatabaseHelper helper = new DatabaseHelper(this,"alarma.db",null,1);
 
 
         btnAtencion.setOnClickListener(new View.OnClickListener() {
@@ -81,8 +68,10 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlarmaDAL alarmaDAL = new AlarmaDAL(getApplicationContext(), new Alarma());
+                String rut = userDAL.getUser().getRut();
+                String estado = "Conectado";
 
-                //alarmaDAL.insertar("17435","conectar");
+                alarmaDAL.insertar(rut,estado);
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
                 builder.setMessage("Su alarma está conectada");

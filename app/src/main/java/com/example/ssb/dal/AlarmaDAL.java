@@ -16,6 +16,9 @@ import java.util.ArrayList;
 public class AlarmaDAL {
     private DatabaseHelper dbHelper;
     private Alarma alarma;
+    private UserDAL userDAL;
+    private DatabaseHelper helper;
+    private User user;
 
 
     public AlarmaDAL(Context context) {
@@ -43,11 +46,16 @@ public class AlarmaDAL {
 
     public boolean tryInsert() {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
+        User user = new User();
 
         ContentValues c = new ContentValues();
 
-        c.put("rutUser",this.alarma.getRutUser());
+        //c.put("rutUser",this.alarma.getRutUser());
         c.put("estado",this.alarma.getEstado());
+
+        c.put("rutUser",this.userDAL.getUser().getRut());
+
+
 
         try {
             db.insert("alarma", null, c);
@@ -60,7 +68,7 @@ public class AlarmaDAL {
     public ArrayList<Alarma> seleccionar(){
         ArrayList<Alarma> lista = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor consulta = db.rawQuery("SELECT * FROM alarma", null);
+        Cursor consulta = db.rawQuery("SELECT rut FROM usuario WHERE rut=?", null);
 
         if(consulta.moveToFirst()) {
             do {

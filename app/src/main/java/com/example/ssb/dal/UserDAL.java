@@ -79,23 +79,6 @@ public class UserDAL {
         return lista;
     }
 
-    public ArrayList<User> selRut(){
-        ArrayList<User> lista = new ArrayList<>();
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor consulta = db.rawQuery("SELECT * FROM usuario WHERE rut='"+getUser().getRut()+"'", null);
-
-        if(consulta.moveToFirst()) {
-            do {
-                String rut = consulta.getString(0);
-
-                User user = new User(rut);
-
-                lista.add(user);
-
-            } while(consulta.moveToNext());
-        }
-        return lista;
-    }
 
 
     //Validar usuario

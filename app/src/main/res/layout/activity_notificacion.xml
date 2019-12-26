@@ -22,21 +22,13 @@
 
     <ListView
         android:id="@+id/listNot1"
-        android:layout_width="414dp"
-        android:layout_height="271dp"
+        android:layout_width="375dp"
+        android:layout_height="548dp"
         android:layout_marginTop="20dp"
-        android:background="#48009688"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLista" />
-
-    <ListView
-        android:id="@+id/listNot2"
-        android:layout_width="414dp"
-        android:layout_height="271dp"
         android:background="#48009688"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listNot1" />
+        app:layout_constraintTop_toBottomOf="@+id/txtLista" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
