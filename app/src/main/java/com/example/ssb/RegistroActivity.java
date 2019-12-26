@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ssb.dal.UserDAL;
+import com.example.ssb.dto.User;
+import com.example.ssb.helpers.DatabaseHelper;
 
 public class RegistroActivity extends AppCompatActivity {
     private EditText editRut, editnombre, editPass, editRe, editMail;
@@ -22,6 +24,7 @@ public class RegistroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
+        userDAL = new UserDAL(getApplicationContext(), new User());
 
         this.editRut = findViewById(R.id.editRut);
         this.editnombre = findViewById(R.id.editNombre);
@@ -30,11 +33,14 @@ public class RegistroActivity extends AppCompatActivity {
         this.editMail = findViewById(R.id.editMail);
         this.btnRegistro = findViewById(R.id.btnRegistro);
 
+        final DatabaseHelper databaseHelper= new DatabaseHelper(getApplicationContext());
 
 
         btnRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 String rut = editRut.getText().toString();
                 String nombre = editnombre.getText().toString();
                 String pass = editPass.getText().toString();
@@ -42,7 +48,7 @@ public class RegistroActivity extends AppCompatActivity {
                 String mail = editMail.getText().toString();
 
                 if (validar(rut) && validar(nombre) && validar(pass) && validar(re) && validar(mail)){
-                    userDAL.insertar(editRut.getText().toString(),editnombre.getText().toString(),editPass.getText().toString(),editMail.getText().toString());
+                    userDAL.insertar(editRut.getText().toString(), editnombre.getText().toString(), editPass.getText().toString(), editMail.getText().toString());
 
                     /* Intent btnRegistro = new Intent(RegistroActivity.this, UserActivity.class);
                     startActivity(btnRegistro); */
