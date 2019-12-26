@@ -4,40 +4,40 @@ import com.example.ssb.dto.User;
 
 import java.io.Serializable;
 
-public class Alarma extends User implements Serializable {
-    private User user;
-    private Boolean estado;
+public class Alarma implements Serializable {
+    private String rutUser;
+    private String estado;
 
     public Alarma() {
     }
 
-    public Alarma(User user, Boolean estado) {
-        this.user = user;
+    public Alarma(String estado) {
         this.estado = estado;
     }
 
-    public Alarma(Boolean estado) {
+    public Alarma(String rutUser, String estado){
+        this.rutUser = rutUser;
         this.estado = estado;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Boolean getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(Boolean estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String getRutUser() {
+        return rutUser;
+    }
+
+    public void setRutUser(String rutUser) {
+        this.rutUser = rutUser;
     }
 
     @Override
     public String toString(){
-        return (this.getUser()+" -- "+this.getEstado());
+        return (this.getEstado());
     }
 }

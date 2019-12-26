@@ -41,14 +41,13 @@ public class RegistroActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                 String rut = editRut.getText().toString();
                 String nombre = editnombre.getText().toString();
                 String pass = editPass.getText().toString();
                 String re = editRe.getText().toString();
                 String mail = editMail.getText().toString();
 
-                if (validar(rut) && validar(nombre) && validar(pass) && validar(re) && validar(mail) && (pass == re)){
+                if (validar(rut) && validar(nombre) && validar(pass) && validar(re) && validar(mail)){
                     userDAL.insertar(editRut.getText().toString(), editnombre.getText().toString(), editPass.getText().toString(), editMail.getText().toString());
 
                     Intent btnRegistro = new Intent(RegistroActivity.this, UserActivity.class);

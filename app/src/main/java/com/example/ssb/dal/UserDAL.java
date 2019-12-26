@@ -58,6 +58,46 @@ public class UserDAL {
         return true;
     }
 
+    public ArrayList<User> seleccionar(){
+        ArrayList<User> lista = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor consulta = db.rawQuery("SELECT * FROM usuario", null);
+
+        if(consulta.moveToFirst()) {
+            do {
+                String rut = consulta.getString(0);
+                String nombre = consulta.getString(1);
+                String pass = consulta.getString(2);
+                String mail = consulta.getString(3);
+
+                User user = new User(rut,nombre,pass,mail);
+
+                lista.add(user);
+
+            } while(consulta.moveToNext());
+        }
+        return lista;
+    }
+
+    public ArrayList<User> selRut(){
+        ArrayList<User> lista = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor consulta = db.rawQuery("SELECT * FROM usuario WHERE rut='"+getUser().getRut()+"'", null);
+
+        if(consulta.moveToFirst()) {
+            do {
+                String rut = consulta.getString(0);
+
+                User user = new User(rut);
+
+                lista.add(user);
+
+            } while(consulta.moveToNext());
+        }
+        return lista;
+    }
+
+
     //Validar usuario
 
 
