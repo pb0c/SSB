@@ -48,7 +48,7 @@ public class RegistroActivity extends AppCompatActivity {
                 String re = editRe.getText().toString();
                 String mail = editMail.getText().toString();
 
-                if (validar(rut) && validar(nombre) && validar(pass) && validar(re) && validar(mail)){
+                if (validar(rut) && validar(nombre) && validar(pass) && validar(re) && validar(mail) && (pass == re)){
                     userDAL.insertar(editRut.getText().toString(), editnombre.getText().toString(), editPass.getText().toString(), editMail.getText().toString());
 
                     Intent btnRegistro = new Intent(RegistroActivity.this, UserActivity.class);
@@ -56,7 +56,7 @@ public class RegistroActivity extends AppCompatActivity {
 
                     Toast.makeText(getApplicationContext(),"Usuario registrado con éxito",Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(getApplicationContext(),"Datos Incompletos",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Datos Incompletos o Contraseñas no coinciden",Toast.LENGTH_SHORT).show();
                 }
 
             }

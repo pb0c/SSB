@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MenuActivity extends AppCompatActivity {
     private Button btnConectar, btnDesconectar, btnEstado, btnAtencion, btnCerrar;
@@ -54,7 +55,19 @@ public class MenuActivity extends AppCompatActivity {
 
         });
 
+    btnCerrar.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            logOut();
+            Toast.makeText(getApplicationContext(),"Se ha cerrado sesión",Toast.LENGTH_SHORT).show();
+        }
+    });
 
+    }
 
+    public void logOut(){
+        Intent intent = new Intent(MenuActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 }
